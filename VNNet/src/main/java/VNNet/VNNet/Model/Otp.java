@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Data
 @Table(name = "otp")
@@ -16,5 +18,5 @@ public class Otp {
     private Long id;
     private Long userId;
     private String otp;
-    private Long timestamp;
+    private LocalDateTime timestamp;
 }

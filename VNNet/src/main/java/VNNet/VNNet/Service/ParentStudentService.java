@@ -34,25 +34,21 @@ public class ParentStudentService {
     @Transactional
     public Boolean addStudentToParent(Long userId, Long studentId) {
         try {
-            // Kiểm tra tồn tại của phụ huynh
             if (!userRepository.existsById(userId)) {
                 logger.warn("Không tìm thấy phụ huynh với ID: {}", userId);
                 return false;
             }
 
-            // Kiểm tra tồn tại của học sinh
             if (!studentRepository.existsById(studentId)) {
                 logger.warn("Không tìm thấy học sinh với ID: {}", studentId);
                 return false;
             }
 
-            // Kiểm tra xem mối quan hệ đã tồn tại chưa
             if (parentStudentMappingRepository.existsByUserIdAndStudentId(userId, studentId)) {
                 logger.info("Mối quan hệ đã tồn tại giữa phụ huynh {} và học sinh {}", userId, studentId);
                 return false;
             }
 
-            // Tạo mối quan hệ mới
             ParentStudentMapping mapping = ParentStudentMapping.builder()
                     .userId(userId)
                     .studentId(studentId)

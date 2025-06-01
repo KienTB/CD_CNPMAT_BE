@@ -3,6 +3,7 @@ package VNNet.VNNet.Service;
 import VNNet.VNNet.Response.AuthenticationResponse;
 import VNNet.VNNet.Model.User;
 import VNNet.VNNet.Repository.UserRepository;
+import VNNet.VNNet.Response.UserCheckResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -180,5 +183,24 @@ public class UserService {
 
         userRepository.delete(user);
         logger.info("User with userId: {} deleted successfully", userId);
+    }
+
+    public UserCheckResponse findUserByPhoneNumber(String phoneNumber){
+        Optional<User> user = userRepository.findByPhoneNumber(phoneNumber);
+        if(user.isPresent()){
+            return new UserCheckResponse(user.get().getUserId(), user.get().getEmail(), user.get().getPhoneNumber());
+        }
+        return null;
+    }
+
+    public boolean updatePassword(Long userId, String newPassword){
+        User user = userRepository.findById(userId)
+                .orElse(null);
+        if(user != null){
+            user.setPassword(passwordEncoder.encode(newPassword));
+            userRepository.save(user);
+            return true;
+        }
+        return false;
     }
 }

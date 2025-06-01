@@ -40,6 +40,7 @@
                     .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                     .authorizeHttpRequests(auth -> auth
                             .requestMatchers("/api/user/login", "api/get/notifications", "api/user/profile").permitAll()
+                            .requestMatchers("/api/otp/check-phone", "/api/otp/send", "/api/otp/verify", "/api/otp/reset-password").permitAll()
                             .requestMatchers("/api/admin/**").hasAuthority("admin")
                             .requestMatchers("/api/teacher/**").hasAuthority("teacher")
                             .requestMatchers("/api/parent/**").hasAuthority("parent")
