@@ -20,7 +20,7 @@
 ## 4. Main Features
 - **Hệ thống phân quyền**: Xác thực và phân quyền riêng biệt cho các cấp độ user và tác vụ khác nhau: Admin, Teacher, Parent, Student.
 - **Authentication**: Xác thực người dùng nâng cao (Đăng nhập, bảo mật JWT).
-- **Quản lý học sinh - phụ huynh**: Mapping và cấu hình liên kết tài khoản giữa hồ sơ học sinh và tải khoản phụ huynh (parent_student_mapping).
+- **Quản lý học sinh - phụ huynh**: Mapping và cấu hình liên kết tài khoản giữa hồ sơ học sinh và tài khoản phụ huynh (parent_student_mapping).
 - **Hệ thống điểm số học tập**: Giáo viên có quyền hạn thêm/sửa/xóa bảng điểm. Phụ huynh xem được điểm số của con qua ứng dụng.
 - **Thời khóa biểu và lịch trình**: Thiết lập, lấy lịch học cho học sinh cụ thể (Cấp quyền đọc cho Giáo viên/Phụ huynh).
 - **Quản trị OTP và khôi phục tài khoản**: Hệ thống gửi email OTP (qua dịch vụ Mail Google SMTP) tự động để xác minh danh tính tài khoản và cho phép làm mới lại mật khẩu an toàn.
