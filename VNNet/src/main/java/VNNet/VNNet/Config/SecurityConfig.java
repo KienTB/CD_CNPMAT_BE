@@ -60,7 +60,8 @@
                     "http://192.168.1.105:8080",
                     "http://172.20.10.3:8080",
                     "http://:172.16.146.54:8080",
-                    "http://localhost:8080"
+                    "http://localhost:8080",
+                    "http://172.20.10.2:8080"
             ));
             configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
             configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));

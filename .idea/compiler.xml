@@ -16,4 +16,11 @@
       <module name="VNNet.VNNet.test~1" target="21" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="VNNet" options="-parameters" />
+      <module name="VNNet.main" options="-parameters" />
+      <module name="VNNet.test" options="-parameters" />
+    </option>
+  </component>
 </project>
